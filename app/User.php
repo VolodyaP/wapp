@@ -38,4 +38,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this-> belongsToMany('App\Role');
     }
+
+    public function group()
+    {
+        return $this->belongsTo('App\Group');
+    }
 }
