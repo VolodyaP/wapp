@@ -20,6 +20,4 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('admin', ['middleware' => 'admin','uses' => 'AdminController@index', function () {
-    //
-}]);
+Route::get('admin', ['uses' => 'AdminController@index']);
