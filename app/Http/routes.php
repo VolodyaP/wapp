@@ -21,3 +21,14 @@ Route::controllers([
 ]);
 
 Route::get('admin', ['uses' => 'AdminController@index']);
+
+Route::get('group/create','GroupController@create');
+Route::get('group/{id}/userlist','GroupController@userList');
+Route::get('group','GroupController@index');
+Route::get('group/{id}','GroupController@show');
+Route::post('group','GroupController@store');
+Route::post('group/{id}/update','GroupController@update');
+
+
+
+
