@@ -21,7 +21,8 @@
                 <th>Кількість Співробітників</th>
                  @foreach($groups as $group)
                     <tr>
-                        <td class="active"><a href="{{url('group/'.$group->id)}}">{{$group->name}}</a></td><td class="active">1</td>
+                        <td class="active"><a href="{{url('group/'.$group->id)}}">{{$group->name}}</a></td>
+                        <td class="active">{{$group->user_count}}</td>
                     </tr>
                 @endforeach
             </table>

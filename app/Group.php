@@ -10,6 +10,8 @@ class Group extends Model
 
     protected $fillable = ['name'];
 
+    protected $dates = ['deleted_at'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -31,5 +33,13 @@ class Group extends Model
             $result = User::find($user_id)->group()->save($group);
         }
         return $result;
+    }
+
+    public static function getGroupAndUserCount(){
+        $groups = self::all();
+        foreach($groups as $group){
+            $group->user_count = count($group->users);
+        }
+        return $groups;
     }
 }

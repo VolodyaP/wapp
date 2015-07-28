@@ -25,7 +25,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $data['groups'] = Group::all();
+
+        $data['groups'] = Group::getGroupAndUserCount();
         return view('group.index',$data);
     }
 
@@ -105,7 +106,7 @@ class GroupController extends Controller
 
     public function userList($id){
 
-        $data['users'] = User::all();
+        $data['users'] = User::where('active','=','1')->get();
         $data['group_id'] = $id;
         return view('group.userlist',$data);
     }

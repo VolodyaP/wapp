@@ -17,8 +17,8 @@ class CreateUserGroupTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('group_id')->references('id')->on('groups');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('group_id')->references('id')->on('groups')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

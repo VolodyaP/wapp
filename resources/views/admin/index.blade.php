@@ -12,11 +12,12 @@
                     <td>Email</td>
                     <td style="text-align: right">Редагувати</td>
                 </thead>
+
                 @foreach($users_list as $user)
                     <tr class="info">
                         <td class="info">{{$user->name}}</td>
                         <td class="info">{{$user->email}}</td>
-                        <td class="info" style="text-align: right"><a href=""><img src="img/edit.png" width="25px" height="25px"></a></td>
+                        <td class="active text-right"><span style="padding: 3px"><a href="{{url('admin/user/'.$user->id.'/approve')}}">approve</a></span><span style="padding: 3px"><a href="{{url('admin/user/'.$user->id.'/reject')}}">reject</a></span></td>
                     </tr>
                 @endforeach
              </table>
