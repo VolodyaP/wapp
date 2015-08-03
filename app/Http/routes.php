@@ -21,6 +21,9 @@ Route::controllers([
 ]);
 
 Route::get('/', ['uses' => 'IndexController@index']);
+Route::get('/user/notactive',function(){
+    return view('user.notactive');
+});
 
 Route::get('admin', ['uses' => 'AdminController@index']);
 Route::get('admin/users', ['uses' => 'AdminController@users']);
