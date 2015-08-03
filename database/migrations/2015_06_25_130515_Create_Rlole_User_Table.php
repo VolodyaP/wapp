@@ -29,6 +29,6 @@ class CreateRloleUserTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('role_user');
     }
 }

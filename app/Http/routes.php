@@ -11,14 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('app');
-});
+//Route::get('/', function () {
+//    return view('app');
+//});
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('/', ['uses' => 'IndexController@index']);
 
 Route::get('admin', ['uses' => 'AdminController@index']);
 Route::get('admin/users', ['uses' => 'AdminController@users']);
@@ -32,6 +34,6 @@ Route::get('group/{id}','GroupController@show');
 Route::post('group','GroupController@store');
 Route::post('group/{id}/update','GroupController@update');
 
-
+Route::get('/event', ['uses' => 'EventController@index']);
 
 

@@ -42,4 +42,8 @@ class Group extends Model
         }
         return $groups;
     }
+
+    public function events(){
+        return $this->hasMany('App\Event');
+    }
 }
