@@ -21,9 +21,6 @@ Route::controllers([
 ]);
 
 Route::get('/', ['uses' => 'IndexController@index']);
-Route::get('/user/notactive',function(){
-    return view('user.notactive');
-});
 
 Route::get('admin', ['uses' => 'AdminController@index']);
 Route::get('admin/users', ['uses' => 'AdminController@users']);
@@ -38,5 +35,7 @@ Route::post('group','GroupController@store');
 Route::post('group/{id}/update','GroupController@update');
 
 Route::get('/event', ['uses' => 'EventController@index']);
+Route::get('/event/create', ['uses' => 'EventController@create']);
+Route::post('/event', ['uses' => 'EventController@store']);
 
 

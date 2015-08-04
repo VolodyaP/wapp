@@ -22,7 +22,11 @@ class ActiveUser
         {
 
             if($request->user()->active != 1){
-                return redirect('/user/notactive');
+                return view('user.notactive');
+            }
+
+            if(!$request->user()->group){
+                return view('user.notgroup');
             }
 
             return $next($request);

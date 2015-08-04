@@ -20,7 +20,8 @@ class Event extends Model
                             'female_name',
                             'date',
                             'guests_count',
-                            'place'
+                            'place',
+                            'group_id'
     ];
 
     /**
@@ -39,14 +40,14 @@ class Event extends Model
     public static function getEvents(){
 
         $user = Auth::user();
-        $groups = $user->group;
-
+        $group = $user->group;
         $events = array();
-        foreach($groups as $k => $group){
-            foreach($group->events as $event){
-                $events[] = $event;
-            }
+        if($group){
+                foreach($group->events as $event){
+                    $events[] = $event;
+                }
+            return $events;
         }
-        return $events;
+
     }
 }

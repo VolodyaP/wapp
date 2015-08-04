@@ -24,7 +24,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password','group_id'];
 
     /**
      * @var array
@@ -45,6 +45,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function group()
     {
-        return $this->belongsToMany('App\Group');
+        return $this->belongsTo('App\Group');
     }
 }

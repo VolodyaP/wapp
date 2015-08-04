@@ -12,7 +12,6 @@ use Illuminate\Http\Response;
 
 class GroupController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('admin');
@@ -25,7 +24,6 @@ class GroupController extends Controller
      */
     public function index()
     {
-
         $data['groups'] = Group::getGroupAndUserCount();
         return view('group.index',$data);
     }
@@ -62,7 +60,6 @@ class GroupController extends Controller
      */
     public function show($id)
     {
-
         $group = Group::find($id);
         $data['group'] = $group;
         $data['users'] = $group->users;
@@ -106,7 +103,7 @@ class GroupController extends Controller
 
     public function userList($id){
 
-        $data['users'] = User::where('active','=','1')->get();
+        $data['users'] = User::where('active','=','1')->where('group_id','=',null)->get();
         $data['group_id'] = $id;
         return view('group.userlist',$data);
     }

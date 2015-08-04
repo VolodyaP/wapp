@@ -18,6 +18,7 @@ class IndexController extends Controller
 
     public function index()
     {
+
         $data['events'] = Event::getEvents();
         return view('index.index',$data);
     }

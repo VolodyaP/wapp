@@ -28,7 +28,6 @@ class EventController extends Controller
     public function index()
     {
 
-        dump(Event::getEvents());
     }
 
     /**
@@ -38,7 +37,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('event.create');
     }
 
     /**
@@ -46,9 +45,20 @@ class EventController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $group = $user->group;
+        $event = Event::create([
+            'group_id'=>$group->id,
+            'date'=>$request->date,
+            'male_name'=>$request->male_name,
+            'female_name'=>$request->female_name,
+            'guest_count'=>$request->guest_count,
+            'place'=>$request->place
+        ]);
+
+        return redirect(url('/'));
     }
 
     /**

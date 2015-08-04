@@ -17,7 +17,7 @@ class Group extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->hasMany('App\User');
     }
 
     /**
@@ -27,19 +27,20 @@ class Group extends Model
      */
     public static function addUserToGroup($user_ids,$group_id){
 
-        $group = Group::find($group_id);
-        $result = false;
-        foreach($user_ids as $user_id){
-            $result = User::find($user_id)->group()->save($group);
-        }
+        $user = User::find($user_ids)->first();
+        $result = Group::find($group_id)->users()->save($user);
+
         return $result;
     }
 
     public static function getGroupAndUserCount(){
+
         $groups = self::all();
+
         foreach($groups as $group){
             $group->user_count = count($group->users);
         }
+
         return $groups;
     }
 
