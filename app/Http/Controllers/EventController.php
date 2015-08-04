@@ -54,7 +54,7 @@ class EventController extends Controller
             'date'=>$request->date,
             'male_name'=>$request->male_name,
             'female_name'=>$request->female_name,
-            'guest_count'=>$request->guest_count,
+            'guests_count'=>$request->guests_count,
             'place'=>$request->place
         ]);
 
@@ -69,7 +69,9 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $data['event'] = Event::find($id);
+        return view('event.show',$data);
     }
 
     /**

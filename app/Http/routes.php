@@ -37,5 +37,6 @@ Route::post('group/{id}/update','GroupController@update');
 Route::get('/event', ['uses' => 'EventController@index']);
 Route::get('/event/create', ['uses' => 'EventController@create']);
 Route::post('/event', ['uses' => 'EventController@store']);
+Route::get('/event/{id}', ['uses' => 'EventController@show']);
 
 

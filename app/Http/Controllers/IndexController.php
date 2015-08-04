@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -18,7 +19,7 @@ class IndexController extends Controller
 
     public function index()
     {
-
+        $data['group'] = Auth::user()->group;
         $data['events'] = Event::getEvents();
         return view('index.index',$data);
     }

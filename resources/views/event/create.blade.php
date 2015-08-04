@@ -14,7 +14,7 @@
                 <input type="date" name='date' class="form-control" id="date">
                 <input type="text" name='male_name' class="form-control" id="male_name">
                 <input type="text" name='female_name' class="form-control" id="female_name">
-                <input type="number" name='guest_count' class="form-control" id="guest_count">
+                <input type="number" name='guests_count' class="form-control" id="guests_count">
                 <input type="text" name='place' class="form-control" id="place">
               </div>
               <button type="submit" class="btn btn-default">Створити</button>
