@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>wapp</title>
+    <title>Wapp</title>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -13,7 +13,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/twitter-bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
 
     <!-- Latest compiled and minified JavaScript -->
 
@@ -29,11 +30,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Project name</a>
+          <a class="navbar-brand" href="/">Wedding Application</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
              @if (Auth::guest())
             <li><a href="{{ url('/auth/login') }}">Login</a></li>
             <li><a href="{{ url('/auth/register') }}">Register</a></li>
@@ -56,6 +56,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
+    <script src="/js/twitter-bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
