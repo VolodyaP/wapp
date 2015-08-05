@@ -20,7 +20,7 @@
                              </tr>
                           @endforeach
                      </table>
-                     <button id="select_users" type="submit">Вибрати</button>
+                     <button class="btn btn-info" id="select_users" type="submit">Вибрати</button>
                  </form>
                 </div>
             </ul>

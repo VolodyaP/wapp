@@ -34,9 +34,15 @@ Route::get('group/{id}','GroupController@show');
 Route::post('group','GroupController@store');
 Route::post('group/{id}/update','GroupController@update');
 
-Route::get('/event', ['uses' => 'EventController@index']);
-Route::get('/event/create', ['uses' => 'EventController@create']);
-Route::post('/event', ['uses' => 'EventController@store']);
-Route::get('/event/{id}', ['uses' => 'EventController@show']);
+Route::get('event', ['uses' => 'EventController@index']);
+Route::get('event/create', ['uses' => 'EventController@create']);
+Route::post('event', ['uses' => 'EventController@store']);
+Route::get('event/{id}', ['uses' => 'EventController@show']);
+
+Route::get('partner', ['uses' => 'PartnerController@index']);
+Route::get('partner/create', ['uses' => 'PartnerController@create']);
+Route::get('partner/type/create', ['uses' => 'PartnerController@typeCreate']);
+Route::post('partner/type/store', ['uses' => 'PartnerController@typeStore']);
+Route::post('partner', ['uses' => 'PartnerController@store']);
 
 
