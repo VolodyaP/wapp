@@ -15,5 +15,12 @@ class Partner extends Model
     /**
      * @var array
      */
-    protected $fillable = ['email','phone','name','type_id'];
+    protected $fillable = ['email','phone','name','type_id','group_id'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function events(){
+        return $this-> belongsToMany('App\Event');
+    }
 }

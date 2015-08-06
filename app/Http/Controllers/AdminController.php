@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\PartnerType;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -41,5 +42,13 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect(url('admin'));
+    }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function partner(){
+        $data['types'] = PartnerType::all();
+        return view('admin.partner',$data);
     }
 }

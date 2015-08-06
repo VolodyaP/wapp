@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\Partner;
 use App\PartnerType;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PartnerController extends Controller
 {
@@ -18,9 +21,9 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $data['partners'] = Partner::all();
-        $data['types'] = PartnerType::all();
-
+        $user = Auth::user();
+        $group = $user->group;
+        $data['partners'] = $group->partners;
         return view('partner.index',$data);
     }
 
@@ -31,6 +34,8 @@ class PartnerController extends Controller
      */
     public function create()
     {
+//        $user = Auth::user();
+//        $user = $user->group;
         $data['partners_type'] = PartnerType::all();
         return view('partner.create',$data);
     }
@@ -42,13 +47,14 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $partner = Partner::create([
                     'name'=> $request->name,
                     'email'=> $request->email,
                     'phone'=> $request->phone,
-                    'type_id'=> $request->type
+                    'type_id'=> $request->type,
+                    'group_id'=>$user->group->id
                     ]);
-        dump($partner);
 
         return redirect(url('partner'));
     }

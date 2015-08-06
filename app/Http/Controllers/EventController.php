@@ -69,8 +69,11 @@ class EventController extends Controller
      */
     public function show($id)
     {
+        $event = Event::find($id);
+        $partners = $event->partners;
 
-        $data['event'] = Event::find($id);
+        $data['event'] = $event;
+        $data['partners'] = $partners;
         return view('event.show',$data);
     }
 
@@ -105,5 +108,11 @@ class EventController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function partners($id){
+        $user = Auth::user();
+        $group = $user->group;
+        dd($group->partners);
     }
 }

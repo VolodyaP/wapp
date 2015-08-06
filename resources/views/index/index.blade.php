@@ -3,7 +3,8 @@
 @section('content')
 
 <div class="row">
-    <div class="col-lg-10 col-md-offset-1">
+    @include('index.sidebar')
+    <div class="col-lg-9">
         <div class="row">
             <div class="col-md-3">
                 <h3>{{$group->name}}</h3>
@@ -38,4 +39,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.8.1/holder.js"></script>
 @endsection

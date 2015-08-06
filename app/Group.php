@@ -47,4 +47,8 @@ class Group extends Model
     public function events(){
         return $this->hasMany('App\Event');
     }
+
+    public function partners(){
+        return $this->hasMany('App\Partner');
+    }
 }
