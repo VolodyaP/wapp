@@ -43,5 +43,6 @@ class Partner extends Model
         }
         return $group->partners;
     }
+
 }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Partner;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -110,9 +111,29 @@ class EventController extends Controller
         //
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\View\View
+     */
     public function partners($id){
         $user = Auth::user();
         $group = $user->group;
-        dd($group->partners);
+        $data['event_id'] = $id;
+        $data['partners'] = $group->partners;
+        return view('event.partner',$data);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function partnerAdd(Request $request,$id){
+
+        $event = Event::find($id);
+        foreach($request->partner_id as $id){
+            Partner::find($id)->events()->save($event);
+        }
+        return redirect(url('event/'.$id));
     }
 }

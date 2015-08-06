@@ -40,6 +40,7 @@ Route::get('event/create', ['uses' => 'EventController@create']);
 Route::post('event', ['uses' => 'EventController@store']);
 Route::get('event/{id}', ['uses' => 'EventController@show']);
 Route::get('event/{id}/partners', ['uses' => 'EventController@partners']);
+Route::post('event/{id}/add/partner', ['uses' => 'EventController@partnerAdd']);
 
 Route::get('partner', ['uses' => 'PartnerController@index']);
 Route::get('partner/create', ['uses' => 'PartnerController@create']);

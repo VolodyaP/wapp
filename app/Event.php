@@ -55,6 +55,6 @@ class Event extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function partners(){
-        return $this-> belongsToMany('App\Partner');
+        return $this->belongsToMany('App\Partner');
     }
 }
