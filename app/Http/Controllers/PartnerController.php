@@ -21,9 +21,9 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $group = $user->group;
-        $data['partners'] = $group->partners;
+        $partners = Partner::buildPartnerResult();
+        $data['partners'] = $partners;
+
         return view('partner.index',$data);
     }
 
@@ -59,49 +59,6 @@ class PartnerController extends Controller
         return redirect(url('partner'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     /**
      *
@@ -110,14 +67,16 @@ class PartnerController extends Controller
         return view('partner.typeCreate');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function typeStore(Request $request){
 
         $type = PartnerType::create([
             'name' => $request->type
         ]);
 
-        dump($type);
-
-        return redirect(url('partner'));
+        return redirect(url('admin/partner/type'));
     }
 }

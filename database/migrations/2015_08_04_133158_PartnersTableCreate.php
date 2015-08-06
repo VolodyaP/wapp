@@ -17,9 +17,9 @@ class PartnersTableCreate extends Migration
             $table->increments('id');
             $table->integer('type_id')->unsigned();
             $table->integer('group_id')->unsigned();
-            $table->string('name')->unique();
-            $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
             $table->timestamps();
 
             $table->foreign('type_id')->references('id')->on('partner_types')->onUpdate('cascade')->onDelete('cascade');

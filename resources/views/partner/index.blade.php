@@ -24,11 +24,13 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
                  @foreach($partners as $partner)
                     <tr>
                         <td class="active">{{$partner->name}}</td>
                         <td class="active">{{$partner->phone}}</td>
                         <td class="active">{{$partner->email}}</td>
+                        <td class="active">{{$partner->type}}</td>
                     </tr>
                 @endforeach
             </table>
