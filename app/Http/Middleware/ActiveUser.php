@@ -32,7 +32,7 @@ class ActiveUser
             return $next($request);
         }
 
-        return view('app');
+        return view('home');
 
     }
 }
