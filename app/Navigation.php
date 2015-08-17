@@ -31,6 +31,18 @@ class Navigation
 
             $html = '
                 <li class="dropdown">
+                    <a href="'.url('/').'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Події<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="'. url('event/create') .'">Створити Подію</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="'.url('partner').'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Партнери<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="'. url('partner/create') .'">Створити Партнера</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">'. Auth::user()->name .'<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="'. url('/auth/logout') .'">Logout</a></li>
@@ -41,5 +53,12 @@ class Navigation
 
         }
     }
+
+    public static function getGroupName(){
+        $group = Auth::user()->group;
+        return $group->name;
+    }
+
+
 
 }

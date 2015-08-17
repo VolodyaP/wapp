@@ -4,14 +4,8 @@
 
 <div class="row">
     @include('index.sidebar')
-    <div class="col-lg-9">
+    <div class="col-lg-8">
         <div class="row">
-            <div class="col-md-3">
-                <h3>{{$group->name}}</h3>
-            </div>
-            <div class="col-md-2 col-md-offset-2">
-                <h2>Події</h2>
-            </div>
             <div class="pull-right">
                 <span>
                     <form action="{{url('event/create')}}">
@@ -21,17 +15,18 @@
             </div>
         </div>
 
-        <div class="table-responsive">
+        <div class="table-responsive col-md-12">
+            <div>
+                <h3>Події</h3>
+            </div>
+
             <table class="table">
-                <th>Дата</th>
-                <th></th>
-                <th></th>
                 @if($events)
                      @foreach($events as $event)
                         <tr>
-                            <td class="active"><a href="{{url('event/'.$event->id)}}">{{$event->date}}</a></td>
-                            <td class="active "><a href="{{url('event/'.$event->id)}}"><span class="col-md-offset-4">{{$event->male_name}} та {{$event->female_name}}</span></a></td>
-                            <td class="active"><a href="{{url('event/'.$event->id)}}"><span class="col-md-offset-4">{{$event->place}}</span></a></td>
+                            <td class="success"><a href="{{url('event/'.$event->id)}}">{{$event->date}}</a></td>
+                            <td class="success "><a href="{{url('event/'.$event->id)}}"><span class="col-md-offset-4">{{$event->male_name}} та {{$event->female_name}}</span></a></td>
+                            <td class="success"><a href="{{url('event/'.$event->id)}}"><span class="col-md-offset-4">{{$event->place}}</span></a></td>
                         </tr>
                      @endforeach
                  @endif

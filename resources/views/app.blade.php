@@ -53,7 +53,13 @@
  <header>
   <div class="container_12">
     <div class="grid_12">
-    <h1><a href="/"><img src="/img/logo.png" alt="Sara  &amp;  Robert Personal Wedding Page"></a> </h1>
+        @if(Auth::user())
+            <div class="col-lg-4">
+                <h3><a class="header-group-name dropdown-toggle sf-with-ul" href="{{url('/')}}">{{\App\Navigation::getGroupName()}}</a></h3>
+            </div>
+        @else
+            <h1><a href="/"><img src="/img/logo.png" alt="Sara  &amp;  Robert Personal Wedding Page"></a> </h1>
+        @endif
          <div class="menu_block">
            <nav  class="" >
                 <ul class="sf-menu">

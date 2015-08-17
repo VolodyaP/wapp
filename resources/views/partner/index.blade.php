@@ -7,7 +7,7 @@
 
     <div class="col-lg-8">
         <div class="row">
-            <div class="pull-right" style="padding: 20px">
+            <div class="pull-right">
                 <span>
                     <form action="{{url('partner/create')}}">
                         <button  type="submit" class="btn btn-info">Створити Партнера</button>
@@ -18,19 +18,15 @@
 
         <div class="table-responsive col-md-12">
         <div>
-            <h3>Партнери:</h3>
+            <h3>Партнери</h3>
         </div>
             <table class="table">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
                  @foreach($partners as $partner)
                     <tr>
-                        <td class="active">{{$partner->name}}</td>
-                        <td class="active">{{$partner->phone}}</td>
-                        <td class="active">{{$partner->email}}</td>
-                        <td class="active">{{$partner->type}}</td>
+                        <td class="success">{{$partner->name}}</td>
+                        <td class="success">{{$partner->phone}}</td>
+                        <td class="success">{{$partner->email}}</td>
+                        <td class="success">{{$partner->type}}</td>
                     </tr>
                 @endforeach
             </table>
