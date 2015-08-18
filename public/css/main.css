@@ -5,3 +5,13 @@
 .header-group-name {
     color:white;
 }
+.custom-front-table {
+    border-collapse: collapse;border:1px solid #e9c5cc;
+}
+
+.custom-front-table td {
+    border-top:1px solid #e9c5cc !important;
+}
+.custom-front-input {
+    border:1px solid #e9c5cc;
+}

@@ -44,5 +44,18 @@ class Partner extends Model
         return $group->partners;
     }
 
+    public static function buildPartnerResultByEvent($id){
+
+        $event = Event::find($id);
+        $partners = $event->partners;
+
+        foreach($partners as $partner){
+
+            $partner->type = $partner->type->name;
+        }
+        return $partners;
+    }
+
+
 }
 

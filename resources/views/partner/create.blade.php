@@ -2,35 +2,42 @@
 
 @section('content')
 
-<div class="row">
-    @include('admin.sidebar')
+<div class="content page1"><div class="ic"></div>
+  <div class="container_12">
+    <div class="grid_10">
+        @include('errors.auth')
 
-    <div class="col-lg-8">
-        <form method="post" action="{{url('partner')}}">
+        <form method="POST" action="{{url('partner')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
-            <label for="name">Імя:</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Імя">
+                <label for="name">Імя:</label>
+                <div>
+                    <input type="text" class="form-control custom-front-input" name="name" id="name">
+                </div>
             </div>
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+              <div>
+                <input type="email" class="form-control custom-front-input" name="email" id="email">
+              </div>
             </div>
             <div class="form-group">
                 <label for="phone">Телефон:</label>
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон">
+                <div>
+                    <input type="text" class="form-control custom-front-input" name="phone" id="phone">
+                </div>
             </div>
             <div class="form-group">
-                <select class="form-control" name="type">
-                    @foreach($partners_type as $type)
-                         <option value="{{$type->id}}">{{$type->name}}</option>
-                    @endforeach
-                </select>
+            <label for="type">Тип:</label>
+                <div>
+                    <select class="form-control custom-front-input" name="type" id="type">
+                        @foreach($partners_type as $type)
+                             <option value="{{$type->id}}">{{$type->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
-          <div class="form-group">
-            <p class="help-block">Example block-level help text here.</p>
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-info">Створити</button>
         </form>
     </div>
 </div>

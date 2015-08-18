@@ -11,16 +11,16 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group">
-                <label class="">E-Mail Address</label>
+                <label>E-Mail</label>
                 <div>
-                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                    <input type="email" class="form-control custom-front-input" name="email" value="{{ old('email') }}">
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="">Password</label>
+                <label class="">Пароль</label>
                 <div>
-                    <input type="password" class="form-control" name="password">
+                    <input type="password" class="form-control custom-front-input" name="password">
                 </div>
             </div>
 

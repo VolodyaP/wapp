@@ -56,7 +56,10 @@ class Navigation
 
     public static function getGroupName(){
         $group = Auth::user()->group;
-        return $group->name;
+        if(!$group)
+            return '';
+        else
+            return $group->name;
     }
 
 

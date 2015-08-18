@@ -3,9 +3,7 @@
 @section('content')
 
 <div class="row">
-    @include('index.sidebar')
-
-    <div class="col-lg-8">
+    <div class="container">
         <div class="row">
             <div class="pull-right">
                 <span>
@@ -22,11 +20,11 @@
         </div>
             <table class="table">
                  @foreach($partners as $partner)
-                    <tr>
-                        <td class="success">{{$partner->name}}</td>
-                        <td class="success">{{$partner->phone}}</td>
-                        <td class="success">{{$partner->email}}</td>
-                        <td class="success">{{$partner->type}}</td>
+                    <tr class="custom-front-table">
+                        <td>{{$partner->name}}</td>
+                        <td>{{$partner->phone}}</td>
+                        <td>{{$partner->email}}</td>
+                        <td class="info">{{$partner->type}}</td>
                     </tr>
                 @endforeach
             </table>

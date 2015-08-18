@@ -71,8 +71,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        $partners = $event->partners;
-
+        $partners = Partner::buildPartnerResultByEvent($id);
         $data['event'] = $event;
         $data['partners'] = $partners;
         return view('event.show',$data);
@@ -116,10 +115,11 @@ class EventController extends Controller
      * @return \Illuminate\View\View
      */
     public function partners($id){
+
         $user = Auth::user();
         $group = $user->group;
         $data['event_id'] = $id;
-        $data['partners'] = $group->partners;
+        $data['partners'] = Partner::buildPartnerResult();
         return view('event.partner',$data);
     }
 

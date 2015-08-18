@@ -57,4 +57,6 @@ class Event extends Model
     public function partners(){
         return $this->belongsToMany('App\Partner');
     }
+
+
 }
