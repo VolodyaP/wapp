@@ -10,6 +10,7 @@
      <link rel="stylesheet" href="/css/twitter-bootstrap/bootstrap.min.css">
      <link rel="stylesheet" href="/css/main.css">
      <script src="/js/jquery.js"></script>
+     <script src="/js/func.js"></script>
      <script src="/js/jquery-migrate-1.1.1.js"></script>
      <script src="/js/superfish.js"></script>
      <script src="/js/jquery.equalheights.js"></script>

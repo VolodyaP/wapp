@@ -9,9 +9,9 @@
             <form method="POST" action="{{url('event')}}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                    <label for="date">Дата</label>
+                    <label for="datepicker">Дата</label>
                     <div>
-                        <input type="date" name='date' class="form-control custom-front-input" id="date">
+                        <input type="date" name='date' class="form-control custom-front-input" id="datepicker">
                     </div>
                 </div>
                 <div class="form-group">
@@ -44,4 +44,13 @@
     </div>
 </div>
 
+@endsection
+
+@section('js')
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script>
+        datepiker();
+    </script>
 @endsection
