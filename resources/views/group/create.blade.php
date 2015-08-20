@@ -2,18 +2,17 @@
 
 @section('content')
 
-<div class="row">
-    @include('admin.sidebar')
-
-    <div class="col-lg-8">
-        <div class="row">
-            <form class="form-inline" method="post" action="{{url('group')}}">
+<div class="content page1"><div class="ic"></div>
+  <div class="container_12">
+    <div class="grid_10">
+        @include('errors.auth')
+            <form method="POST" action="{{url('group')}}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name='name' class="form-control" id="name">
+                <label for="name">Імя Групи</label>
+                <input type="text" name='name' class="form-control custom-front-input" id="name">
               </div>
-              <button type="submit" class="btn btn-default">Створити</button>
+              <button type="submit" class="btn btn-info">Створити</button>
             </form>
         </div>
     </div>

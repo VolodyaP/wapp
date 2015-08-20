@@ -19,6 +19,20 @@ class Navigation
             $html = '
                 <li><a href="'. url('/admin') .'">BO</a></li>
                 <li class="dropdown">
+                    <a href="'. url('group').'">Группи<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="'. url('/group/create') .'">Створити Групу</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="'. url('admin/partner/type').'">Партнери<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="'. url('/partner/type/create') .'">Створити тип</a></li>
+                    </ul>
+                </li>
+                <li><a href="'. url('admin/users').'">Користувачі</a></li>
+
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">'. Auth::user()->name .'<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="'. url('/auth/logout') .'">Logout</a></li>

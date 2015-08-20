@@ -1,8 +1,6 @@
 @extends('app')
 
 @section('content')
-
-<div class="row">
     <div class="container">
         <div class="row">
             <div class="pull-right">
@@ -30,5 +28,5 @@
             </table>
         </div>
     </div>
-</div>
+
 @endsection

@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="row">
-    @include('admin.sidebar')
     <div class="col-lg-8">
-
         <div class="pull-right">
             <span>
                 <form action="{{url('group/'.$group->id.'/userlist')}}">

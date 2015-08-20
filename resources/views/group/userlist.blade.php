@@ -3,8 +3,6 @@
 @section('content')
 
 <div class="row">
-    @include('admin.sidebar')
-
     <div class="col-lg-8">
         <div class="row">
             <ul>
