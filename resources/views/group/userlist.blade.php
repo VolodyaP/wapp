@@ -2,19 +2,19 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-lg-8">
+    <div class="container">
+        <div class="row">
         <div class="row">
             <ul>
                 <div class="table-responsive">
                 <form method="post" action="{{url('group/'.$group_id.'/update')}}">
                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                     <table class="table">
-                         <th>Імя</th>
+                     <table class="table custom-front-table">
+                         <th  style="border-top: 1px solid #e9c5cc">Імя</th>
                           @foreach($users as $user)
                              <tr>
-                                 <td class="active">{{$user->name}}</td>
-                                 <td class="active"><input type="checkbox" name="user_id[]" value="{{$user->id}}"></td>
+                                 <td class="">{{$user->name}}</td>
+                                 <td class=""><input type="checkbox" name="user_id[]" value="{{$user->id}}"></td>
                              </tr>
                           @endforeach
                      </table>

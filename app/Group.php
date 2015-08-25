@@ -15,8 +15,7 @@ class Group extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function users()
-    {
+    public function users(){
         return $this->hasMany('App\User');
     }
 
@@ -26,15 +25,21 @@ class Group extends Model
      * @param $group_id int
      */
     public static function addUserToGroup($user_ids,$group_id){
-
-        $user = User::find($user_ids)->first();
-        $result = Group::find($group_id)->users()->save($user);
-
+        $result = false;
+        if(count($user_ids) > 1 ){
+            foreach($user_ids as $id){
+                $user = User::find($id);
+                $result[] = Group::find($group_id)->users()->save($user);
+            }
+        }
+        else{
+            $user = User::find($user_ids)->first();
+            $result = Group::find($group_id)->users()->save($user);
+        }
         return $result;
     }
 
     public static function getGroupAndUserCount(){
-
         $groups = self::all();
 
         foreach($groups as $group){
