@@ -27,6 +27,7 @@ Route::get('admin/users', ['uses' => 'AdminController@users']);
 Route::get('admin/user/{id}/approve', ['uses' => 'AdminController@usersApprove']);
 Route::get('admin/user/{id}/reject', ['uses' => 'AdminController@usersReject']);
 Route::get('admin/partner/type', ['uses' => 'AdminController@partner']);
+Route::get('admin/statistic', ['uses' => 'AdminController@statistic']);
 
 Route::get('group/create','GroupController@create');
 Route::get('group/{id}/userlist','GroupController@userList');

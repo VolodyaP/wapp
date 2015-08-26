@@ -56,4 +56,18 @@ class Group extends Model
     public function partners(){
         return $this->hasMany('App\Partner');
     }
+
+    /**
+     * @return mixed
+     */
+    public static function eventStatisticBuild(){
+
+        $groups = Group::all();
+        $data = array();
+        foreach($groups as $k => $group){
+            $data[$k]['group'] = $group->name;
+            $data[$k]['event'] = count($group->events);
+        }
+        return json_encode($data);
+    }
 }
