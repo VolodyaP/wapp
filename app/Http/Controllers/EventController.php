@@ -129,11 +129,10 @@ class EventController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function partnerAdd(Request $request,$id){
-
         $event = Event::find($id);
-        foreach($request->partner_id as $id){
-            Partner::find($id)->events()->save($event);
+        foreach($request->partner_id as $p_id){
+            Partner::find($p_id)->events()->save($event);
         }
-        return redirect(url('event/'.$id));
+        return redirect(url('/event/'.$id));
     }
 }

@@ -4,24 +4,31 @@
 
 <div class="row">
     <div class="container">
+        @if(count($partners))
+            <form method="POST" action="{{url('event/'.$event_id.'/add/partner')}}">
+             <input class="custom-front-input" type="hidden" name="_token" value="{{ csrf_token() }}">
+                 <table class="table">
+                      @foreach($partners as $partner)
+                         <tr class="custom-front-table">
+                             <td class="">{{$partner->name}}</td>
+                             <td class="">{{$partner->email}}</td>
+                             <td class="">{{$partner->phone}}</td>
+                             <td class="info">{{$partner->type}}</td>
+                             <td class=""><input type="checkbox" name="partner_id[]" value="{{$partner->id}}"></td>
+                         </tr>
+                      @endforeach
+                 </table>
 
-        <form method="POST" action="{{url('event/'.$event_id.'/add/partner')}}">
-         <input class="custom-front-input" type="hidden" name="_token" value="{{ csrf_token() }}">
-             <table class="table">
-                  @foreach($partners as $partner)
-                     <tr class="custom-front-table">
-                         <td class="">{{$partner->name}}</td>
-                         <td class="">{{$partner->email}}</td>
-                         <td class="">{{$partner->phone}}</td>
-                         <td class="info">{{$partner->type}}</td>
-                         <td class=""><input type="checkbox" name="partner_id[]" value="{{$partner->id}}"></td>
-                     </tr>
-                  @endforeach
-             </table>
-             <button class="btn btn-info" id="select_users" type="submit">Вибрати</button>
-         </form>
-        </div>
-    </ul>
+
+                 <button class="btn btn-info" id="select_users" type="submit">Вибрати</button>
+
+             </form>
+        @else
+            <div>
+                <p>Немає Партнерів</p>
+            </div>
+        @endif
+    </div>
 </div>
 
 @endsection
