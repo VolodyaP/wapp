@@ -16,6 +16,8 @@
      <script src="/js/jquery.equalheights.js"></script>
      <script src="/js/jquery.easing.1.3.js"></script>
      <script src="/js/tms-0.4.1.js"></script>
+     <script src="http://d3js.org/d3.v3.min.js"></script>
+     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
      <script>
       $(window).load(function(){
       $('.slider')._TMS({
