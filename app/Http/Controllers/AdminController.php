@@ -56,10 +56,8 @@ class AdminController extends Controller
      * @return \Illuminate\View\View
      */
     public function statistic(){
-
-        $statistic = Group::eventStatisticBuild();
-//        dd($statistic);
-        $data['data'] = $statistic;
+        $data['eventStatistic'] = Group::eventStatisticBuild();
+        $data['staffStatistic'] = Group::buildGroupUsersCountStatistic();
         return view('admin.statistic',$data);
     }
 }

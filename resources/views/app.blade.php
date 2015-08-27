@@ -18,6 +18,7 @@
      <script src="/js/tms-0.4.1.js"></script>
      <script src="http://d3js.org/d3.v3.min.js"></script>
      <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <script>
       $(window).load(function(){
       $('.slider')._TMS({

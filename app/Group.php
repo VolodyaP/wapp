@@ -61,12 +61,24 @@ class Group extends Model
      * @return mixed
      */
     public static function eventStatisticBuild(){
-
-        $groups = Group::all();
+        $groups = Group::where('name','!=','admin_group')->get();
         $data = array();
         foreach($groups as $k => $group){
             $data[$k]['group'] = $group->name;
             $data[$k]['event'] = count($group->events);
+        }
+        return json_encode($data);
+    }
+
+    /**
+     * @return string
+     */
+    public static function buildGroupUsersCountStatistic(){
+        $groups = Group::where('name','!=','admin_group')->get();
+        $data = array();
+        foreach($groups as $k => $group){
+            $data[$k]['group'] = $group->name;
+            $data[$k]['staffCount'] = count($group->users);
         }
         return json_encode($data);
     }
