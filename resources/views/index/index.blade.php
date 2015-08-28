@@ -26,6 +26,8 @@
                             <td class="info"><a href="{{url('event/'.$event->id)}}">{{$event->date}}</a></td>
                             <td><a href="{{url('event/'.$event->id)}}"><span class="col-md-offset-4">{{$event->male_name}} та {{$event->female_name}}</span></a></td>
                             <td><a href="{{url('event/'.$event->id)}}"><span class="col-md-offset-4">{{$event->place}}</span></a></td>
+                            <td><a href="" id="wedd_edit"><span class="col-md-offset-4"><img class="wedd_action_icon" src="/img/icon/edit-icon.png"></span></a></td>
+                            <td><a href="" id="wedd_delete"><span class="col-md-offset-4"><img class="wedd_action_icon" src="/img/icon/Delete_icon.png"></span></a></td>
                         </tr>
                      @endforeach
                  @endif
@@ -37,4 +39,7 @@
 
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.8.1/holder.js"></script>
+    <script>
+        sendAjax();
+    </script>
 @endsection
