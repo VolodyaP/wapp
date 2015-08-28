@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="/css/statistic.css">
     <script src="/js/statistic.js"></script>
     <script>
-
         statisticBarChart(<?php echo $eventStatistic?>);
         staffPieChart(<?php echo $staffStatistic?>);
     </script>

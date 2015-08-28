@@ -1,4 +1,8 @@
 
+/**
+ * Function build statistic graph
+ * @param data json string
+ */
 function statisticBarChart(data){
 
     var margin = {top: 40, right: 20, bottom: 30, left: 40},
@@ -73,7 +77,10 @@ function statisticBarChart(data){
     }
 
 }
-
+/**
+ * Function build statistic graph
+ * @param data json string
+ */
 function staffPieChart(data){
 
     var width = 960,
