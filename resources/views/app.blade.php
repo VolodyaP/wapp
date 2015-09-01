@@ -3,6 +3,8 @@
      <head>
      <title>Home</title>
      <meta charset="utf-8">
+     <meta name="csrf-token" content="{{ csrf_token() }}" />
+
      <link rel="icon" href="/img/favicon.ico">
      <link rel="shortcut icon" href="/img/favicon.ico" />
      <link rel="stylesheet" href="/css/style.css">
