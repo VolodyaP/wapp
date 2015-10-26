@@ -5,7 +5,14 @@
 <div class="container-fluid">
  <div class="row">
 
-    <div class="col-lg-8 wedding-section">
+    <div class="col-lg-12 wedding-section">
+        <div class="pull-right">
+            <span>
+                <form action="{{url('event/'.$event->id.'/partners')}}">
+                    <button  type="submit" class="btn btn-info">Додати Партнера</button>
+                </form>
+            </span>
+        </div>
         <div class="row">
             <div class="col-md-5 col-md-offset-5"><h3>{{$event->date}} {{$event->place}}</h3></div>
         </div>
@@ -26,29 +33,19 @@
                     <li>Facebook:</li>
                 </ul>
             </div>
-            
+
             <div class="col-md-12 " style="border-top: 1px solid #e9c5cc;">
                 <div class="col-md-6 col-md-offset-5">
                     <ul>
                         <li>Кількість гостей: {{$event->guests_count}}</li>
                     </ul>
-
                 </div>
 
             </div>
         </div>
     </div>
 
-    <div class="col-lg-4">
-        <div class="pull-right">
-            <span>
-                <form action="{{url('event/'.$event->id.'/partners')}}">
-                    <button  type="submit" class="btn btn-info">Додати Партнера</button>
-                </form>
-
-
-            </span>
-        </div>
+    <div class="col-lg-12">
         <div class="col-lg-12">
             @if(count($partners) > 0)
                 <span>Партнери:</span>

@@ -3,6 +3,8 @@
      <head>
      <title>Home</title>
      <meta charset="utf-8">
+     <meta name="csrf-token" content="{{ csrf_token() }}" />
+
      <link rel="icon" href="/img/favicon.ico">
      <link rel="shortcut icon" href="/img/favicon.ico" />
      <link rel="stylesheet" href="/css/style.css">
@@ -16,6 +18,10 @@
      <script src="/js/jquery.equalheights.js"></script>
      <script src="/js/jquery.easing.1.3.js"></script>
      <script src="/js/tms-0.4.1.js"></script>
+     <script src="http://d3js.org/d3.v3.min.js"></script>
+     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+     <script src="/js/ajax.js"></script>
      <script>
       $(window).load(function(){
       $('.slider')._TMS({

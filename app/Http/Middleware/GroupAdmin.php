@@ -16,12 +16,13 @@ class GroupAdmin
      */
     public function handle($request, Closure $next)
     {
-        $group = Auth::user()->group;
 
-        if($group->name == 'admin_group'){
-            return view('admin.statistic');
+        $user = Auth::user();
+        foreach($user->roles as $role){
+            if($role->role == 'admin'){
+                return redirect(url('admin/statistic'));
+            }
         }
-
         return $next($request);
     }
 }

@@ -15,8 +15,7 @@ class Group extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function users()
-    {
+    public function users(){
         return $this->hasMany('App\User');
     }
 
@@ -26,15 +25,21 @@ class Group extends Model
      * @param $group_id int
      */
     public static function addUserToGroup($user_ids,$group_id){
-
-        $user = User::find($user_ids)->first();
-        $result = Group::find($group_id)->users()->save($user);
-
+        $result = false;
+        if(count($user_ids) > 1 ){
+            foreach($user_ids as $id){
+                $user = User::find($id);
+                $result[] = Group::find($group_id)->users()->save($user);
+            }
+        }
+        else{
+            $user = User::find($user_ids)->first();
+            $result = Group::find($group_id)->users()->save($user);
+        }
         return $result;
     }
 
     public static function getGroupAndUserCount(){
-
         $groups = self::all();
 
         foreach($groups as $group){
@@ -50,5 +55,31 @@ class Group extends Model
 
     public function partners(){
         return $this->hasMany('App\Partner');
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function eventStatisticBuild(){
+        $groups = Group::where('name','!=','admin_group')->get();
+        $data = array();
+        foreach($groups as $k => $group){
+            $data[$k]['group'] = $group->name;
+            $data[$k]['event'] = count($group->events);
+        }
+        return json_encode($data);
+    }
+
+    /**
+     * @return string
+     */
+    public static function buildGroupUsersCountStatistic(){
+        $groups = Group::where('name','!=','admin_group')->get();
+        $data = array();
+        foreach($groups as $k => $group){
+            $data[$k]['group'] = $group->name;
+            $data[$k]['staffCount'] = count($group->users);
+        }
+        return json_encode($data);
     }
 }

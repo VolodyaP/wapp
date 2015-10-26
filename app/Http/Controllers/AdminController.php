@@ -51,4 +51,13 @@ class AdminController extends Controller
         $data['types'] = PartnerType::all();
         return view('admin.partner',$data);
     }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function statistic(){
+        $data['eventStatistic'] = Group::eventStatisticBuild();
+        $data['staffStatistic'] = Group::buildGroupUsersCountStatistic();
+        return view('admin.statistic',$data);
+    }
 }

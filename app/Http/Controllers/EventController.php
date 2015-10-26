@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
@@ -105,9 +106,15 @@ class EventController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function delete(Request $request)
     {
-        //
+        $message['status'] = 'error';
+        if($request->ajax()){
+            $event = Event::find($request->event_id);
+            $event->delete();
+            $message['status'] = 'success';
+        }
+        die(\Illuminate\Support\Facades\Response::json($message));
     }
 
     /**
@@ -116,8 +123,6 @@ class EventController extends Controller
      */
     public function partners($id){
 
-        $user = Auth::user();
-        $group = $user->group;
         $data['event_id'] = $id;
         $data['partners'] = Partner::buildPartnerResult();
         return view('event.partner',$data);
@@ -129,11 +134,10 @@ class EventController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function partnerAdd(Request $request,$id){
-
         $event = Event::find($id);
-        foreach($request->partner_id as $id){
-            Partner::find($id)->events()->save($event);
+        foreach($request->partner_id as $p_id){
+            Partner::find($p_id)->events()->save($event);
         }
-        return redirect(url('event/'.$id));
+        return redirect(url('/event/'.$id));
     }
 }

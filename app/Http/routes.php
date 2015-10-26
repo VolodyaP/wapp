@@ -15,6 +15,9 @@
 //    return view('app');
 //});
 
+
+use Illuminate\Support\Facades\Request;
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
@@ -27,6 +30,7 @@ Route::get('admin/users', ['uses' => 'AdminController@users']);
 Route::get('admin/user/{id}/approve', ['uses' => 'AdminController@usersApprove']);
 Route::get('admin/user/{id}/reject', ['uses' => 'AdminController@usersReject']);
 Route::get('admin/partner/type', ['uses' => 'AdminController@partner']);
+Route::get('admin/statistic', ['uses' => 'AdminController@statistic']);
 
 Route::get('group/create','GroupController@create');
 Route::get('group/{id}/userlist','GroupController@userList');
@@ -39,13 +43,23 @@ Route::post('group/{id}/update','GroupController@update');
 Route::get('event/create', ['uses' => 'EventController@create']);
 Route::post('event', ['uses' => 'EventController@store']);
 Route::get('event/{id}', ['uses' => 'EventController@show']);
-    Route::get('event/{id}/partners', ['uses' => 'EventController@partners']);
+Route::get('event/{id}/partners', ['uses' => 'EventController@partners']);
 Route::post('event/{id}/add/partner', ['uses' => 'EventController@partnerAdd']);
+Route::post('event/delete', ['uses' => 'EventController@delete']);
+Route::post('/test/post',function(){
+    if(Request::ajax()){
+        dd(\Illuminate\Support\Facades\Response::json(Request::all()));
+        return 'some string with ajax';
+//        return \Illuminate\Support\Facades\Response::json(Request::all());
+    }
+});
 
 Route::get('partner', ['uses' => 'PartnerController@index']);
 Route::get('partner/create', ['uses' => 'PartnerController@create']);
 Route::get('partner/type/create', ['uses' => 'PartnerController@typeCreate']);
 Route::post('partner/type/store', ['uses' => 'PartnerController@typeStore']);
 Route::post('partner', ['uses' => 'PartnerController@store']);
+
+
 
 

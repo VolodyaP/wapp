@@ -15,7 +15,7 @@ class IndexController extends Controller
     public function __construct()
     {
         $this->middleware('user');
-        $this->middleware('adminGroup');
+        $this->middleware('groupAdmin');
     }
 
     public function index()
