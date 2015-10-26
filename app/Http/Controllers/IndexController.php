@@ -15,6 +15,7 @@ class IndexController extends Controller
     public function __construct()
     {
         $this->middleware('user');
+        $this->middleware('adminGroup');
     }
 
     public function index()
@@ -22,6 +23,5 @@ class IndexController extends Controller
         $data['events'] = Event::getEvents();
         return view('index.index',$data);
     }
-
 
 }
